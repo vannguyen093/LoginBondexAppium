@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class LoginBondex {
+public class FirstLogin {
 
     AndroidDriver driver;
     WebDriverWait wait;
@@ -35,13 +35,15 @@ public class LoginBondex {
         URL url = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(url, capabilities);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\AlreadyLoginThanh.json");
+        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\FirstLoginMon.json");
     }
 
     @Test
     public void AlreadyLogin() throws InterruptedException {
         for (CustomerData user : userData) {
             Thread.sleep(3000);
+
+            System.out.println("Dang chay acc: " + user.getEmail());
 
             //Click Login button
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")));
@@ -54,8 +56,6 @@ public class LoginBondex {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.EditText' and (@text = 'Password' or . = 'Password')]")));
             driver.findElement(By.xpath("//*[@class = 'android.widget.EditText' and (@text = 'Password' or . = 'Password')]")).sendKeys(user.getPassword());
 
-            System.out.println("Dang chay acc: " + user.getEmail());
-
             //Click nut Login
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[7]/android.widget.TextView")));
             driver.findElement(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[7]/android.widget.TextView")).click();
@@ -64,9 +64,43 @@ public class LoginBondex {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]")));
             driver.findElement(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]")).click();
 
+            //Click nut Industry Select
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.HorizontalScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]")));
+            driver.findElement(By.xpath("//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.HorizontalScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]")).click();
+
+            //Click nut Admin Support
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Admin Support' or . = 'Admin Support')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Admin Support' or . = 'Admin Support')]")).click();
+
+            Thread.sleep(1000);
+
+            //Click nut Subindustry Select
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView")));
+            driver.findElement(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView")).click();
+
+            //Click nut Data Entry
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Data Entry & Transcription Services' or . = 'Data Entry & Transcription Services')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Data Entry & Transcription Services' or . = 'Data Entry & Transcription Services')]")).click();
+
+            //Click nut Next
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Next' or . = 'Next')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Next' or . = 'Next')]")).click();
+
+            //Click nut Fulltime
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Full-time jobs' or . = 'Full-time jobs')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Full-time jobs' or . = 'Full-time jobs')]")).click();
+
+            //Click nut Next
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Next' or . = 'Next')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Next' or . = 'Next')]")).click();
+
+            //Click nut No
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'NO' or . = 'NO')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'NO' or . = 'NO')]")).click();
+
             //Click nut Close
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]")));
-            driver.findElement(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]")).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Close' or . = 'Close')]")));
+            driver.findElement(By.xpath("//*[@class = 'android.widget.TextView' and (@text = 'Close' or . = 'Close')]")).click();
 
             //Click nut Setting
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup")));
