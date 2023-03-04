@@ -9,4 +9,8 @@ public class CustomerData {
         String email;
         @JsonProperty("pass")
         String password;
+        @JsonProperty("pass1")
+        String password1;
+        @JsonProperty("pass2")
+        String password2;
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AutomationTestingIn">
+
+
+    <test name="Run Memu">
+        <classes>
+            <class name="bondex.Mon.AlreadyLogin"/>
+<!--            <class name="bondex.Mon.FirstLogin"/>-->
+        </classes>
+    </test>
+
+</suite>

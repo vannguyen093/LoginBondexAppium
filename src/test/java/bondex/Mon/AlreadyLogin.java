@@ -1,4 +1,4 @@
-package bondex;
+package bondex.Mon;
 
 import data.CustomerData;
 import data.UserDataMapper;
@@ -35,13 +35,14 @@ public class AlreadyLogin {
         URL url = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(url, capabilities);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\AlreadyLoginThanh.json");
+        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\AlreadyLoginMon.json");
     }
 
     @Test
     public void AlreadyLogin() throws InterruptedException {
         for (CustomerData user : userData) {
             Thread.sleep(3000);
+            System.out.println("Dang chay acc: " + user.getEmail());
 
             //Click Login button
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")));
@@ -54,7 +55,6 @@ public class AlreadyLogin {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class = 'android.widget.EditText' and (@text = 'Password' or . = 'Password')]")));
             driver.findElement(By.xpath("//*[@class = 'android.widget.EditText' and (@text = 'Password' or . = 'Password')]")).sendKeys(user.getPassword());
 
-            System.out.println("Dang chay acc: " + user.getEmail());
 
             //Click nut Login
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[7]/android.widget.TextView")));
