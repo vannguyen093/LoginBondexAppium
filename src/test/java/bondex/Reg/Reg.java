@@ -41,8 +41,8 @@ public class Reg {
         driver = new AndroidDriver(url, capabilities);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\RegMon.json");
-        ref = "5YFQD";
+        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\RegNgoc.json");
+        ref = "SILJ2";
     }
 
     @Test
