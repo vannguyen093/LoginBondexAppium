@@ -3,7 +3,7 @@
 
     <test name="Run Memu">
         <classes>
-            <class name="bondex.Mon.AlreadyLogin"/>
+            <class name="bondex.Mon.LoginMon"/>
             <class name="bondex.Mon.FirstLogin"/>
 <!--            <class name="bondex.Reg.Reg"/>-->
         </classes>

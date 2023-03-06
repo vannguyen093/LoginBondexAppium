@@ -1,4 +1,4 @@
-package bondex.Mon;
+package bondex.Ngoc;
 
 import data.CustomerData;
 import data.UserDataMapper;
@@ -18,7 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class LoginMon {
+public class LoginNgoc {
 
     AndroidDriver driver;
     WebDriverWait wait;
@@ -38,7 +38,7 @@ public class LoginMon {
         URL url = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(url, capabilities);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\ListRefMon.json");
+        userData = UserDataMapper.getUserData("D:\\01 - LEARN TESTER\\02 - AUTOMATION\\08 - Live Coding\\LoginBondex\\src\\test\\resources\\ListRefNgoc.json");
     }
 
     @Test
